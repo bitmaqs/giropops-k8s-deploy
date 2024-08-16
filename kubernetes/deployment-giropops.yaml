@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: giropops-senhas
+  namespace: giropops
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: giropops-senhas
+  template:
+    metadata:
+      labels:
+        app: giropops-senhas
+    spec:
+      containers:
+      - name: giropops-senhas
+        image: bitmaqs/giropops-senhas
+        ports:
+        - containerPort: 5000
+        env:
+        - name: REDIS_HOST
+          value: redisdb
+        - name: FLASK_APP
+          value: app.py
+

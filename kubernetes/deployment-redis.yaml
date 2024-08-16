@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redisdb
+  namespace: giropops
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redisdb
+  template:
+    metadata:
+      labels:
+        app: redisdb
+    spec:
+      containers:
+      - name: redisdb
+        image: cgr.dev/chainguard/redis:latest
+        volumeMounts:
+        - name: strigus-volume
+          mountPath: /strigus
+      volumes:
+      - name: strigus-volume
+        persistentVolumeClaim:
+          claimName: strigus-pvc
+
