@@ -16,11 +16,3 @@ spec:
       containers:
       - name: redisdb
         image: cgr.dev/chainguard/redis:latest
-        volumeMounts:
-        - name: strigus-volume
-          mountPath: /strigus
-      volumes:
-      - name: strigus-volume
-        persistentVolumeClaim:
-          claimName: strigus-pvc
-
