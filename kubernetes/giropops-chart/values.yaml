@@ -1,5 +1,5 @@
 giropops:
-  name: "giropops"
+  name: "giropops-senhas"
   image: "bitmaqs/giropops-senhas:latest"
   replicas: "2"
   port: 5000
@@ -8,10 +8,11 @@ giropops:
     env: "labs"
     live: "true"
   service:
-    type: "NodePort"
+    type: "ClusterIP"
     port: 5000
     targetPort: 5000
-    name: "giropops-senhas-port"
+    name: "giropops-senhas"
+    protocol: "TCP"
   resources:
     requests:
       memory: "128Mi"
@@ -19,8 +20,19 @@ giropops:
     limits:
       memory: "256Mi"
       cpu: "500m"
+  ingress:
+    name: "giropops-senhas"
+    host: "giropops.localdev.me"
+    path: "/"
+    pathType: "Prefix"
+    annotations:
+      sslRedirect: "false"
+      entrypoints: "web"
+     
+
 
 redis:
+  name: "redis"
   image: "cgr.dev/chainguard/redis:latest"
   replicas: 1
   port: 6379
@@ -33,6 +45,7 @@ redis:
     port: 6379
     targetPort: 6379
     name: "redis-port"
+    protocol: "TCP"
   resources:
     requests:
       memory: "128Mi"

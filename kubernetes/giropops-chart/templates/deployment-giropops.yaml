@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: giropops-senhas
+  name: {{ .Values.giropops.name }}
 spec:
   replicas: {{ .Values.giropops.replicas }}
   selector:
     matchLabels:
-      app: giropops-senhas
+      app: {{ .Values.giropops.labels.app }}
   template:
     metadata:
       labels:
-        app: giropops-senhas
+        app: {{ .Values.giropops.labels.app }}
     spec:
       containers:
-      - name: giropops-senhas
+      - name: {{ .Values.giropops.name }}
         image: {{ .Values.giropops.image }}
         ports:
         - containerPort: {{ .Values.giropops.service.port }}

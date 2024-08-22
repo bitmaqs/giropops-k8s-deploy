@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: redis
+  name: {{ .Values.redis.name }}
 spec:
   replicas: {{ .Values.redis.replicas }}
   selector:
     matchLabels:
-      app: redis
+      app: {{ .Values.redis.labels.app }}
   template:
     metadata:
       labels:
-        app: redis
+        app: {{ .Values.redis.labels.app }}
     spec:
       containers:
-      - name: redis
+      - name: {{ .Values.redis.name }}
         image: {{ .Values.redis.image }}
         ports: 
           - containerPort: {{ .Values.redis.port }}
