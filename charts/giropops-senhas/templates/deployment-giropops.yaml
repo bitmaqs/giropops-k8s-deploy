@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.giropops.name }}
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: {{ .Values.giropops.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.giropops.labels.app }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.giropops.labels.app }}
+    spec:
+      containers:
+      - name: {{ .Values.giropops.name }}
+        image: {{ .Values.giropops.image }}
+        ports:
+        - containerPort: {{ .Values.giropops.service.port }}
+        env:
+        - name: REDIS_HOST
+          value: redis
+        - name: FLASK_APP
+          value: app.py
+

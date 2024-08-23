@@ -1,0 +1,56 @@
+#namespace: "giropops"
+giropops:
+  name: "giropops-senhas"
+  image: "bitmaqs/giropops-senhas:latest"
+  replicas: "2"
+  port: 5000
+  labels:
+    app: "giropops-senhas"
+    env: "labs"
+    live: "true"
+  service:
+    type: "ClusterIP"
+    port: 5000
+    targetPort: 5000
+    name: "giropops-senhas"
+    protocol: "TCP"
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "250m"
+    limits:
+      memory: "256Mi"
+      cpu: "500m"
+  ingress:
+    name: "giropops-senhas"
+    host: "giropops.localdev.me"
+    path: "/"
+    pathType: "Prefix"
+    annotations:
+      sslRedirect: "false"
+      entrypoints: "web"
+     
+
+
+redis:
+  name: "redis"
+  image: "cgr.dev/chainguard/redis:latest"
+  replicas: 1
+  port: 6379
+  labels:
+    app: "redis"
+    env: "labs"
+    live: "true"
+  service:
+    type: "ClusterIP"
+    port: 6379
+    targetPort: 6379
+    name: "redis"
+    protocol: "TCP"
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "250m"
+    limits:
+      memory: "256Mi"
+      cpu: "500m"
