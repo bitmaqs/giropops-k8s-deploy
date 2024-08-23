@@ -1,0 +1,11 @@
+namespace: "giropops-staging"
+giropops:
+  name: "giropops-senhas-staging"
+  labels:
+    env: "staging"
+  ingress:
+    host: "staging.giropops.localdev.me"
+redis:
+  name: "redis-staging"
+  labels:
+    env: "staging"

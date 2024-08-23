@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ .Values.giropops.name }}
-  namespace: {{ .Values.giropops.namespace }}
+  namespace: {{ .Values.namespace }}
   annotations:
     ingress.kubernetes.io/ssl-redirect: "{{ .Values.giropops.ingress.annotations.sslRedirect }}"
     traefik.ingress.kubernetes.io/router.entrypoints: {{ .Values.giropops.ingress.annotations.entrypoints }}

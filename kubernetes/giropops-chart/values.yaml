@@ -1,3 +1,4 @@
+#namespace: "giropops"
 giropops:
   name: "giropops-senhas"
   image: "bitmaqs/giropops-senhas:latest"
@@ -44,7 +45,7 @@ redis:
     type: "ClusterIP"
     port: 6379
     targetPort: 6379
-    name: "redis-port"
+    name: "redis"
     protocol: "TCP"
   resources:
     requests:

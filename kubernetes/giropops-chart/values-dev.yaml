@@ -1,0 +1,11 @@
+namespace: "giropops-dev"
+giropops:
+  name: "giropops-senhas-dev"
+  labels:
+    env: "dev"
+  ingress:
+    host: "dev.giropops.localdev.me"
+redis:
+  name: "redis-dev"
+  labels:
+    env: "dev"
