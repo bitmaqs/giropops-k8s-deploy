@@ -1,6 +1,6 @@
 **Objective:** Create a password management application using Docker, Kubernetes, Helm, Kyverno, Cosign, Prometheus, apko, and Melange to ensure the security, automation, and continuous monitoring of the application.
 
-**Project Description:** Create a password management application based on the giropops-senhas project. The goal is to implement and configure the application using the listed technologies, ensuring high standards of security, automation, and monitoring.
+**Project Description:**  The goal is to implement and configure the application using the listed technologies, ensuring high standards of security, automation, and monitoring.
 
 #### Project Requirements:
 
