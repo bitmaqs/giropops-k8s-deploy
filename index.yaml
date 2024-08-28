@@ -3,14 +3,14 @@ entries:
   giropops-senhas:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2024-08-23T00:11:50.083844399-03:00"
+    created: "2024-08-28T11:18:24.186654496-03:00"
     description: Giropops-senhas password generator chart
-    digest: c734e263d32cff2eee3c11c21bf03ebe1a39ff03110aff7f99cf24879eba1554
+    digest: bc9edb9b13f3f8838ecd7e123990b27b80952ef93815b78c94312394c8cfb388
     name: giropops-senhas
     sources:
     - https://github.com/badtuxx/giropops-senhas
-    - https://github.com/bitmaqs/pick24
+    - https://github.com/bitmaqs/giropops-k8s-deploy
     urls:
-    - https://bitmaqs.github.io/pick24/giropops-senhas-0.1.0.tgz
+    - https://bitmaqs.github.io/giropops-k8s-deploy/giropops-senhas-0.1.0.tgz
     version: 0.1.0
-generated: "2024-08-23T00:11:50.083330657-03:00"
+generated: "2024-08-28T11:18:24.186278647-03:00"
