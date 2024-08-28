@@ -16,6 +16,8 @@ spec:
       containers:
       - name: {{ .Values.giropops.name }}
         image: {{ .Values.giropops.image }}
+        securityContext:
+          runAsNonRoot: {{ .Values.giropops.securityContext.runAsNonRoot }}
         ports:
         - containerPort: {{ .Values.giropops.service.port }}
         env:

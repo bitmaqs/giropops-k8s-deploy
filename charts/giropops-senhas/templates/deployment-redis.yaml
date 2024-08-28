@@ -16,6 +16,8 @@ spec:
       containers:
       - name: {{ .Values.redis.name }}
         image: {{ .Values.redis.image }}
+        securityContext:
+          runAsNonRoot: {{ .Values.redis.securityContext.runAsNonRoot }}
         ports: 
           - containerPort: {{ .Values.redis.port }}
         resources:

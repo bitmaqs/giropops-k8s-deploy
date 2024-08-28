@@ -4,6 +4,8 @@ giropops:
   image: "bitmaqs/giropops-senhas:latest"
   replicas: "2"
   port: 5000
+  securityContext:
+    runAsNonRoot: true
   labels:
     app: "giropops-senhas"
     env: "labs"
@@ -36,6 +38,9 @@ redis:
   name: "redis"
   image: "cgr.dev/chainguard/redis:latest"
   replicas: 1
+  securityContext:
+    runAsNonRoot: true
+
   port: 6379
   labels:
     app: "redis"
