@@ -12,3 +12,9 @@ spec:
   selector:
     matchLabels:
       app: giropops-senhas
+  namespaceSelector:
+    matchNames:
+      - giropops
+      - giropops-dev
+      - giropops-staging
+      - giropops-prod
