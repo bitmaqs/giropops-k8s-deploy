@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: {{ .Values.giropops.service.name }}
   namespace: {{ .Values.namespace }}
+  labels:
+    app: {{ .Values.giropops.labels.app }}
 spec:
   selector:
     app: {{ .Values.giropops.labels.app }}
@@ -10,4 +12,5 @@ spec:
     - protocol: {{ .Values.giropops.service.protocol }}
       port: {{ .Values.giropops.service.port }}
       targetPort: {{ .Values.giropops.service.port }}
+      name: {{ .Values.giropops.service.portName }}
   type: {{ .Values.giropops.service.type }}
